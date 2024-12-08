@@ -13,7 +13,7 @@
 body {
    font-weight: 200;
    color:white;  /*var(--tg-theme-text-color);*/
-   background: black; /*var(--tg-theme-bg-color);*/
+   background: rgb(43, 42, 42); /*var(--tg-theme-bg-color);*/
 }
 form {
    margin-top: 20vh;
@@ -29,11 +29,11 @@ button {
    font-weight: 500;
    cursor: pointer;
    transition: all 500ms ease;
-   color:blue;  /*var(--tg-theme-button-color);*/
-   background:red;  /*var(--tg-theme-button-text-color);*/
+   color:rgb(255, 255, 255);  /*var(--tg-theme-button-color);*/
+   background:rgb(12, 143, 0);  /*var(--tg-theme-button-text-color);*/
 }
 button:hover {
-   background:green /*var(--tg-theme-secondary-bg-color);*/
+   background:rgb(0, 0, 0) /*var(--tg-theme-secondary-bg-color);*/
 }
 #register {
    display:none;
@@ -61,18 +61,22 @@ input:focus {
 </head>
 <body>
    <form id="login">
+      <h1>Вход</h1>
       <input type="text" name="name" placeholder="имя" id="name_login"><br><br>
       <input type="text" name="pass" placeholder="пароль" id="pass"><br><br>
       <button id="login_button">зайти</button>
-      <span id="link_to_register">у вас нет аккаунта?</span>
+      <span id="link_to_register">у вас нет аккаунта?</span><br><br>
+      <div id="error_login"></div>
    </form>
 
    <form id="register">
+      <h1>Регистрация</h1>
       <input type="text" name="name" placeholder="имя" id="name_register"><br><br>
       <input type="text" name="pass" placeholder="пароль" id="pass"><br><br>
       <input type="text" name="repass" placeholder="проверка пароля" id="repass"><br><br>
       <button id="register_button">регистрация</button>
-      <span id="link_to_login">у вас есть аккаунт?</span>
+      <span id="link_to_login">у вас есть аккаунт?</span><br><br>
+      <div id="error_login"></div>
    </form>
 
    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
@@ -83,10 +87,12 @@ input:focus {
       let register = document.getElementById('register')
       let link_to_register = document.getElementById('link_to_register')
       let link_to_login = document.getElementById('link_to_login')
+      tg.expand()
+
+
       link_to_register.addEventListener("click", () => {
          document.getElementById('login').style.display = "none"
          document.getElementById('register').style.display = "block"
-         document.getElementById('register').value = tg.initDataunsafe.first_name + " " + tg.initDataunsafe.last_name
       })
       link_to_login.addEventListener("click", () => {
          document.getElementById('login').style.display = "block"
