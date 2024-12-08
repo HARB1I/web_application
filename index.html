@@ -61,15 +61,14 @@ input:focus {
 </head>
 <body>
    <form id="login">
-      <input type="text" name="name" placeholder="имя" id="name"><br><br>
+      <input type="text" name="name" placeholder="имя" id="name_login"><br><br>
       <input type="text" name="pass" placeholder="пароль" id="pass"><br><br>
-      <input type="text" name="repass" placeholder="проверка пароля" id="repass"><br><br>
       <button id="login">зайти</button>
       <span id="link_to_register">у вас нет аккаунта?</span>
    </form>
 
    <form id="register">
-      <input type="text" name="name" placeholder="имя" id="name"><br><br>
+      <input type="text" name="name" placeholder="имя" id="name_register"><br><br>
       <input type="text" name="pass" placeholder="пароль" id="pass"><br><br>
       <input type="text" name="repass" placeholder="проверка пароля" id="repass"><br><br>
       <button id="register">регистрация</button>
@@ -82,7 +81,17 @@ input:focus {
       let tg = window.Telegram.WebApp
       let login = document.getElementById('login')
       let register = document.getElementById('register')
-      let link_to_register = document.getElementById('register')
+      let link_to_register = document.getElementById('link_to_register')
+      let link_to_login = document.getElementById('link_to_login')
+      link_to_register.addEventListener("click", () => {
+         document.getElementById('login').style.display = "none"
+         document.getElementById('register').style.display = "block"
+         document.getElementById('register').value = tg.initDataunsafe.first_name + " " + tg.initDataunsafe.last_name
+      })
+      link_to_login.addEventListener("click", () => {
+         document.getElementById('login').style.display = "block"
+         document.getElementById('register').style.display = "none"
+      })
 
    </script>
 </body>
