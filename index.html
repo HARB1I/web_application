@@ -1,38 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
-<html>
- <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-<title>
-  сайт
-</title>
-  <link rel="icon" href="https://res.cloudinary.com/harbi/image/upload/v1648384388/favicon_xsh7zv.ico" type="image/x-icon">
-</head> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="styles.css">
+   <title>Document</title>
+</head>
 <body>
+   <form id="login">
+      <input type="text" name="name" placeholder="имя" id="name"><br><br>
+      <input type="text" name="pass" placeholder="пароль" id="pass"><br><br>
+      <input type="text" name="repass" placeholder="проверка пароля" id="repass"><br><br>
+      <button id="login">зайти</button>
+      <span id="link_to_register">у вас нет аккаунта?</span>
+   </form>
 
-<header class="shapka" id="shapka">
+   <form id="register">
+      <input type="text" name="name" placeholder="имя" id="name"><br><br>
+      <input type="text" name="pass" placeholder="пароль" id="pass"><br><br>
+      <input type="text" name="repass" placeholder="проверка пароля" id="repass"><br><br>
+      <button id="register">регистрация</button>
+      <span id="link_to_login">у вас есть аккаунт?</span>
+   </form>
 
-  <img src="https://res.cloudinary.com/harbi/image/upload/v1733001523/i_2_bkfxff.webp" alt="логотип" class="abc">
+   <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+   <script>
 
-</header>
+      let tg = window.Telegram.WebApp
+      let login = document.getElementById('login')
+      let register = document.getElementById('register')
+      let link_to_register = document.getElementById('register')
 
-
-<style type="text/css">
-    body {
-        background-color: #30abdb;
-        font-family: sans-serif;
-        font-size: small;
-        }
-    header {
-    }
-    .abc {
-        width: 100%;
-        margin-right: 0px;
-        padding: 0px;
-    }
-</style>
-
+   </script>
 </body>
-</html> 
+</html>
